@@ -1,0 +1,72 @@
+<div class="container">
+
+  <h1>Update Entry</h1>
+
+  <form ng-submit="ctrl.update()">
+
+    <div class="row form-group">
+      <label class="col-sm-2">Open</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.entry.active" type="checkbox" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Ticket</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.entry.ticket" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Description</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.entry.description" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Date In</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.display.dateIn" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Time In</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.display.timeIn" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Date Out</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.display.dateOut" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Time Out</label>
+      <div class="col-sm-6">
+        <input ng-model="ctrl.display.timeOut" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <label class="col-sm-2">Total</label>
+      <div class="col-sm-6">
+        <input ng-value="ctrl.total() + ' hours'" type="text" class="form-control-plaintext" readonly />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-block btn-primary">Update</button>
+      </div>
+      <div class="col-sm-2">
+        <a ng-click="ctrl.delete()" class="btn btn-block btn-danger" href>Delete</a>
+      </div>
+    </div>
+  </form>
+</div>

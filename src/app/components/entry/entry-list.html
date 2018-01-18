@@ -1,0 +1,90 @@
+<div class="container">
+
+  <form ng-submit="ctrl.start()">
+
+    <div class="row">
+
+      <div class="col-sm-5 form-group">
+        <label>Ticket</label>
+        <input ng-model="ctrl.entry.ticket" type="text" class="form-control" />
+      </div>
+
+      <div class="col-sm-5 form-group">
+        <label>Description</label>
+        <input ng-model="ctrl.entry.description" type="text" class="form-control" />
+      </div>
+
+      <div class="col-sm-2 form-group">
+        <label>&nbsp;</label>
+        <button type="submit" class="btn btn-block btn-primary">Start</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th>
+          Date
+        </th>
+        <th sort-toggle active="ctrl.sortBy" key="'ticket'">
+          Ticket
+          <i sort-indicator active="ctrl.sortBy" key="'ticket'"></i>
+        </th>
+        <th sort-toggle active="ctrl.sortBy" key="'description'">
+          Description
+          <i sort-indicator active="ctrl.sortBy" key="'description'"></i>
+        </th>
+        <th sort-toggle active="ctrl.sortBy" key="'timeIn'">
+          Time In
+          <i sort-indicator active="ctrl.sortBy" key="'timeIn'"></i>
+        </th>
+        <th sort-toggle active="ctrl.sortBy" key="'timeOut'">
+          Time Out
+          <i sort-indicator active="ctrl.sortBy" key="'timeOut'"></i>
+        </th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="entry in ctrl.entries | orderBy: ctrl.sortBy track by $index">
+        <td>
+          <a href="/#!/date/{{ctrl.DateService.formatDateNumber(entry.timeIn)}}">
+            <span display-date="entry.timeIn"></span>
+          </a>
+        </td>
+        <td>
+          <a href="/#!/ticket/{{entry.ticket}}">{{entry.ticket}}</a>
+        </td>
+        <td>
+          {{entry.description}}
+        </td>
+        <td>
+          <span display-time="entry.timeIn"></span>
+        </td>
+        <td>
+          <span display-time="entry.timeOut"></span>
+          <a ng-hide="entry.timeOut" ng-click="ctrl.stop(entry)" href>Stop</a>
+        </td>
+        <td>
+          <span display-total date1="entry.timeIn" date2="entry.timeOut"></span>
+        </td>
+        <td>
+          <a href="/#!/entry/{{ctrl.getIndex(entry)}}">Edit</a>
+          <span ng-show="entry.active">
+            |
+            <a ng-click="ctrl.close(entry)" href>Close</a>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th colspan="7">
+          {{ctrl.totalAll()}} hours
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>

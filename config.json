@@ -1,0 +1,27 @@
+{
+  "src": {
+    "html": "src/**/*.html",
+    "assets": [
+      "src/assets/**",
+      "!src/assets/styles/**"
+    ],
+    "app": {
+      "all": "src/app/**/*.js",
+      "dir": "src/app/",
+      "main": "app.module.js"
+    },
+    "templates": {
+      "all": "src/app/**/*.html",
+      "module": "templates",
+      "main": "app.templates.js"
+    }
+  },
+  "dist": {
+    "dir": "public/",
+    "assets": "public/assets/",
+    "app": {
+      "dir": "public/app/",
+      "main": "main.js"
+    }
+  }
+}
