@@ -22,7 +22,10 @@ import { LocalStorageService } from "./shared/local-storage";
 
 import { routes } from "./app.routes";
 
-angular.module("main", [])
+angular.module("main", [
+    "ngRoute"
+  ])
+
   .service("DateService", DateService)
   .service("EntryService", EntryService)
   .service("LocalStorageService", LocalStorageService)
@@ -40,5 +43,6 @@ angular.module("app", [
     "ngRoute",
     "main"
   ])
+
   .run(templates)
   .config(routes);
