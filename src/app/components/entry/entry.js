@@ -102,7 +102,7 @@ class EntryListController {
     angular.forEach(this.entries, (entry) => {
       total += this.DateService.totalHours(entry.timeIn, entry.timeOut);
     });
-    return total;
+    return total.toFixed(2);
   }
 }
 
