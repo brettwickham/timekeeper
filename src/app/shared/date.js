@@ -1,5 +1,5 @@
 class DateService {
-  constructor(months = false, am = false, pm = false, round = 4) {
+  constructor(months = false, am = false, pm = false, round = 0) {
     this.months = months || [
       "Jan", "Feb", "Mar", "Apr", "May", "Jun",
       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
